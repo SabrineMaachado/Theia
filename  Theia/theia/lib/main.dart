@@ -36,10 +36,15 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       'Index 1: Categoria',
       style: optionStyle,
     ),
-    Text(
-      'Index 2: seach',
-      style: optionStyle,
-    ),
+    Padding(
+      padding: EdgeInsets.all(24.0),
+      child: TextField(
+        decoration: InputDecoration(
+          border: OutlineInputBorder(),
+          labelText: 'Digite sua piada',
+        ),
+      ),
+    )
   ];
 
   void _onItemTapped(int index) {
