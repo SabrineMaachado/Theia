@@ -1,81 +1,230 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(const IsJoke());
+void main() {
+  runApp(const CardExamplesApp());
+}
 
-class IsJoke extends StatelessWidget {
-  const IsJoke({Key? key}) : super(key: key);
-
-  static const String _title = 'Flutter Code Sample';
+class CardExamplesApp extends StatelessWidget {
+  const CardExamplesApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: _title,
-      home: MyStatefulWidget(),
+    return MaterialApp(
+      theme: ThemeData(
+        colorSchemeSeed: const Color(0xff6750a4),
+      ),
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text(
+            'Categoria',
+            textAlign: TextAlign.center,
+          ),
+          backgroundColor: Colors.purple,
+        ),
+        body: Column(
+          children: const <Widget>[
+            Spacer(),
+            CategoryAnimals(),
+            CategoryPeoples(),
+            CategoryPlaces(),
+            CategoryHome(),
+            CategoryWhatIs(),
+            CategorySchool(),
+            Spacer(),
+          ],
+        ),
+      ),
     );
   }
 }
 
-class MyStatefulWidget extends StatefulWidget {
-  const MyStatefulWidget({Key? key}) : super(key: key);
-
-  @override
-  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
-}
-
-class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Piada aleatoria',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: Categoria',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: seach',
-      style: optionStyle,
-    ),
-  ];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
+class CategoryAnimals extends StatelessWidget {
+  const CategoryAnimals({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('IsJoke'),
-        backgroundColor: Colors.purple,
+    return Center(
+      child: Card(
+        color: Color.fromARGB(255, 87, 34, 210),
+        child: InkWell(
+          splashColor: Color.fromARGB(255, 223, 56, 253).withAlpha(200),
+          onTap: () {
+            debugPrint('Card tapped.');
+          },
+          child: const SizedBox(
+            width: 300,
+            height: 100,
+            child: Center(
+              child: Text(
+                'Animais',
+                style: TextStyle(
+                    fontSize: 24,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+        ),
       ),
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+    );
+  }
+}
+
+class CategoryPeoples extends StatelessWidget {
+  const CategoryPeoples({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Card(
+        color: Color.fromARGB(255, 210, 34, 210),
+        child: InkWell(
+          splashColor: Color.fromARGB(255, 244, 56, 238).withAlpha(200),
+          onTap: () {
+            debugPrint('Card tapped.');
+          },
+          child: const SizedBox(
+            width: 300,
+            height: 100,
+            child: Center(
+              child: Text(
+                'Pessoas',
+                style: TextStyle(
+                    fontSize: 24,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+        ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.add_reaction_outlined),
-            label: 'Joke',
+    );
+  }
+}
+
+class CategoryPlaces extends StatelessWidget {
+  const CategoryPlaces({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Card(
+        color: Color.fromARGB(255, 84, 34, 210),
+        child: InkWell(
+          splashColor: Color.fromARGB(255, 56, 138, 253).withAlpha(200),
+          onTap: () {
+            debugPrint('Card tapped.');
+          },
+          child: const SizedBox(
+            width: 300,
+            height: 100,
+            child: Center(
+              child: Text(
+                'Lugares',
+                style: TextStyle(
+                    fontSize: 24,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.category),
-            label: 'Categorias',
+        ),
+      ),
+    );
+  }
+}
+
+class CategoryHome extends StatelessWidget {
+  const CategoryHome({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Card(
+        color: Color.fromARGB(255, 46, 210, 34),
+        child: InkWell(
+          splashColor: Color.fromARGB(255, 56, 253, 102).withAlpha(200),
+          onTap: () {
+            debugPrint('Card tapped.');
+          },
+          child: const SizedBox(
+            width: 300,
+            height: 100,
+            child: Center(
+              child: Text(
+                'Casa',
+                style: TextStyle(
+                    fontSize: 24,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Pesquisa',
+        ),
+      ),
+    );
+  }
+}
+
+class CategoryWhatIs extends StatelessWidget {
+  const CategoryWhatIs({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Card(
+        color: Color.fromARGB(255, 210, 104, 34),
+        child: InkWell(
+          splashColor: Color.fromARGB(255, 253, 177, 56).withAlpha(200),
+          onTap: () {
+            debugPrint('Card tapped.');
+          },
+          child: const SizedBox(
+            width: 300,
+            height: 100,
+            child: Center(
+              child: Text(
+                'O que e, O que e?',
+                style: TextStyle(
+                    fontSize: 24,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
           ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.purpleAccent,
-        onTap: _onItemTapped,
+        ),
+      ),
+    );
+  }
+}
+
+class CategorySchool extends StatelessWidget {
+  const CategorySchool({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Card(
+        color: Color.fromARGB(255, 34, 210, 184),
+        child: InkWell(
+          splashColor: Color.fromARGB(255, 56, 253, 207).withAlpha(200),
+          onTap: () {
+            debugPrint('Card tapped.');
+          },
+          child: const SizedBox(
+            width: 300,
+            height: 100,
+            child: Center(
+              child: Text(
+                'Escola',
+                style: TextStyle(
+                    fontSize: 24,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }
